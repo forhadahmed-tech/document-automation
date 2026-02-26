@@ -2,7 +2,6 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 def fetch_sheet_data():
-    # scopes required to read sheets
     scopes = [
         "https://www.googleapis.com/auth/spreadsheets.readonly"
     ]
@@ -14,12 +13,15 @@ def fetch_sheet_data():
 
     client = gspread.authorize(creds)
 
-    # Use your Sheet ID here
     sheet_id = "1f4zYZQ5BZwO6As2QbgsJb2UOvWFMNzrTz3hT5mGgtIU"
     sheet = client.open_by_key(sheet_id)
 
-    # you can fetch specific tab like:
-    worksheet = sheet.sheet1  # first tab
-    data = worksheet.get_all_records()
+    # Fetch Sheet1 (Style Config)
+    sheet1 = sheet.worksheet("Sheet1")
+    style_data = sheet1.get_all_values()
 
-    return data
+    # Fetch Sheet2 (Content)
+    sheet2 = sheet.worksheet("Sheet2")
+    content_data = sheet2.get_all_records()
+
+    return style_data, content_data
