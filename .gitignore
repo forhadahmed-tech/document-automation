@@ -1,0 +1,40 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Python packages
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDE / editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sensitive files
+credentials/service-account.json
+
+# Generated documents
+generated_docs/
+
+# Coverage and test reports
+.coverage
+htmlcov/
+*.pytest_cache/
+.pytest_cache/
